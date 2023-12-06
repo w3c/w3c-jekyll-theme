@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Basic page template - W3C Design System</title>
+
+    <meta property="og:description" name="description" content="Basic page template from the W3C design system"/>
+    <meta property="og:image" name="image" content="https://www.w3.org/assets/website-2021/images/w3c-opengraph-image.png">
+
+    <script src="https://www.w3.org/assets/website-2021/js/libraries/fontfaceobserver.js"></script>
+
+    <script>
+        let myFont = new FontFaceObserver('Noto Sans');
+
+        Promise.all([myFont.load()]).then(function () {
+            document.documentElement.className += " fonts-loaded";
+        });
+
+        var jsAssetsPath = "/assets/";
+    </script>
+
+    <link rel="stylesheet" href="https://www.w3.org/assets/website-2021/styles/core.css?ver=1.4.3" media="screen"/>
+
+    <!--
+    CSS Mustard Cut
+    Print (Edge doesn't apply to print otherwise)
+    Edge, Chrome 39+, Opera 26+, Safari 9+, iOS 9+, Android ~5+, Android UCBrowser ~11.8+
+    FF 47+
+    -->
+    <link rel="stylesheet" id="advanced-stylesheet" href="https://www.w3.org/assets/website-2021/styles/advanced.css?ver=1.4.3" media="
+        only print,
+        only all and (pointer: fine), only all and (pointer: coarse), only all and (pointer: none),
+        only all and (min--moz-device-pixel-ratio:0) and (display-mode:browser), (min--moz-device-pixel-ratio:0) and (display-mode:fullscreen)
+    ">
+
+    <link rel="stylesheet" href="https://www.w3.org/assets/website-2021/styles/print.css" media="print"/>
+
+    <script>
+        (function() {
+            let linkEl = document.getElementById('advanced-stylesheet');
+            if (window.matchMedia && window.matchMedia(linkEl.media).matches) {
+                let head = document.querySelector('head');
+                // Add main JS
+                let jsMain = document.createElement('script');
+                jsMain.src = 'https://www.w3.org/assets/website-2021/js/main.js?ver=1.4.3';
+                jsMain.defer = true;
+                head.appendChild(jsMain);
+                // Update classname to show JS is available
+                (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+            }
+        })();
+    </script>
+
+</head>
+
+<body >
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="grid-wrap">
+        <div class="wrap">
+
+            	<header class="global-header">
+	<span role="status" aria-live="polite"></span>
+	<div class="banner">
+		<div class="banner__inner l-center">
+			<p>This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us improve it.</p>
+		</div>
+	</div>
+	<nav id="lang-nav" aria-label="Language options">
+		<div class="l-center">
+			<div class="l-cluster">
+				<ul class="clean-list" role="list">
+					<li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页<span class="visuallyhidden" lang="en"> (Chinese website)</span></a></li>
+					<li><a href="/ja" hreflang="ja" lang="ja">日本語ホームページ<span class="visuallyhidden" lang="en"> (Japanese website)</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<nav id="global-nav" aria-label="Main">
+		<div class="global-nav__inner l-center">
+			<a class="logo-link" href="/">
+                <span class="logo">
+                    <img src="https://www.w3.org/assets/logos/w3c/w3c-no-bars.svg" alt="W3C" role="img"/>
+                </span>
+				<span class="visuallyhidden">W3C homepage</span>
+			</a>
+		</div>
+	</nav>
+</header>
+
+            
+            <main id="main">
+                	<h1>{{ site.title | default: site.github.repository_name }}</h1>
+              {{ content }}
+            </main>
+
+            
+                        
+        </div>
+
+        <footer class="global-footer">
+	<div class="l-center">
+		<div class="global-footer__links">
+			<div class="l-cluster">
+				<ul class="clean-list" role="list">
+					<li><a href="/">Home</a></li>
+				</ul>
+			</div>
+			<ul class="clean-list" role="list">
+				<li><a class="with-icon--larger" href="https://w3c.social/@w3c" hreflang="en">
+					<img class="icon icon--larger" src="/dist/assets/svg/mastodon.svg" width="20"
+						height="20" alt aria-hidden="true" loading="lazy"/>
+					<span class="visuallyhidden">W3C on Mastodon</span></a>
+				</li>
+				<li><a class="with-icon--larger" href="https://twitter.com/W3C" hreflang="en">
+					<img class="icon icon--larger" src="/dist/assets/svg/x.svg" width="20"
+						height="20" alt aria-hidden="true" loading="lazy"/>
+					<span class="visuallyhidden">W3C on X</span></a>
+				</li>
+				<li><a class="with-icon--larger" href="https://github.com/w3c/" hreflang="en">
+					<img class="icon icon--larger" src="/dist/assets/svg/github.svg" width="20"
+						height="20" alt aria-hidden="true" loading="lazy"/>
+					<span class="visuallyhidden">W3C on GitHub</span></a>
+				</li>
+			</ul>
+		</div>
+		<p class="copyright">Copyright &copy; 20XX <a href="https://www.w3.org/">World Wide Web	Consortium</a>.<br>
+			<abbr title="World Wide Web Consortium">W3C</abbr><sup>&reg;</sup>
+			<a href="https://www.w3.org/policies/#disclaimers">liability</a>,
+			<a href="https://www.w3.org/policies/#trademarks">trademark</a> and
+			<a rel="license" href="https://www.w3.org/copyright/software-license/" title="W3C Software License">permissive license</a>
+			rules apply.</p>
+	</div>
+</footer>
+
+    </div>
+</body>
+
+</html>
