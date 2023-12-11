@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card__text">
+        <h3 class="card__heading">{{ include.title }}</h3>
+        <p>{{ include.content }}</p>
+    </div>
+    <div class="l-frame l-frame--3-2 card__image">
+        <img src="{{ include.imageurl }}"
+             loading="lazy"
+             sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+             alt="{{ include.imagealt }}" />
+    </div>
+</div>

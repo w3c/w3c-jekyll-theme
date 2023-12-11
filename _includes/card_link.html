@@ -1,0 +1,12 @@
+<div class="card" data-component="card">
+    <div class="card__text">
+        <h3 class="card__heading"><a href="{{ include.url }}" class="card__link">{{ include.title }}</a></h3>
+        <p>{{ include.content }}</p>
+    </div>
+    <div class="l-frame l-frame--3-2 card__image">
+        <img src="{{ include.imageurl }}"
+             loading="lazy"
+             sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+             alt="{{ include.imagealt }}" />
+    </div>
+</div>
