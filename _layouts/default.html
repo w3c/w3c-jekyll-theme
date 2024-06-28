@@ -13,23 +13,32 @@
             <main id="main">
                 <div class="content">
                     <article>
-                        <h1>{{ page.title | default: site.github.repository_name }}</h1>
+                        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+                        {% if site.description %}
+                        <p class="lead"">{{ site.description }}</p>
+                        {% endif %}
                         <div class="component component--text">
                             {{ content }}
                         </div>
                     </article>
+                    {% if site.data.navigation.pages %}
                     <section class="related">
                         <div class="related__inner">
                             <h2 class="txt-jupiter">Related content</h2>
                             <ul class="clean-list" role="list">
-                                {{ page.related_content }}
+                            {% for item in site.data.navigation.pages %}
+                              <li class="{% if page.url == item.html %}active{% endif %}">
+                              <a href="{{ item.url }}">{{ item.title }}</a>
+                              </li>
+                            {% endfor %}
                             </ul>
                         </div>
                     </section>
+                    {% endif %}
                 </div>  
+                {% include prefooter.html %}
             </main>  
         </div>
-
         {% include footer.html %}
 
     </div>
