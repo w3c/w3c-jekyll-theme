@@ -1,23 +1,26 @@
 <header class="global-header">
     <span role="status" aria-live="polite"></span>
-    <div class="banner">
+    {% if site.member_only == true %}
+    <div class="banner banner--access-control acl-member">
         <div class="banner__inner l-center">
-            <p>This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us improve it.</p>
+            <img class="icon" src="https://www.w3.org/assets/website-2021/svg/lock.svg" width="20" height="20" alt="" aria-hidden="true">
+            <p>This page is restricted to W3C Members</p>
         </div>
     </div>
+    {% endif %}
     <nav id="lang-nav" aria-label="Language options">
         <div class="l-center">
             <div class="l-cluster">
                 <ul class="clean-list" role="list">
-                    <li><a href="/zh" hreflang="zh-hans" lang="zh-hans">简体中文首页<span class="visuallyhidden" lang="en"> (Chinese website)</span></a></li>
-                    <li><a href="/ja" hreflang="ja" lang="ja">日本語ホームページ<span class="visuallyhidden" lang="en"> (Japanese website)</span></a></li>
+                    <li><a href="https://www.w3.org/zh/" hreflang="zh-hans" lang="zh-hans">简体中文首页<span class="visuallyhidden" lang="en"> (Chinese website)</span></a></li>
+                    <li><a href="https://www.w3.org/ja/" hreflang="ja" lang="ja">日本語ホームページ<span class="visuallyhidden" lang="en"> (Japanese website)</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <nav id="global-nav" aria-label="Main">
         <div class="global-nav__inner l-center">
-            <a class="logo-link" href="/">
+            <a class="logo-link" href="https://www.w3.org/">
                 <span class="logo">
                     <img src="https://www.w3.org/assets/logos/w3c/w3c-no-bars.svg" alt="W3C" role="img"/>
                 </span>
