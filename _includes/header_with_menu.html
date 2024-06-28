@@ -1,10 +1,13 @@
 <header class="global-header">
     <span role="status" aria-live="polite"></span>
-    <div class="banner">
+    {% if site.member_only == true %}
+    <div class="banner banner--access-control acl-member">
         <div class="banner__inner l-center">
-            <p>This is a new website. <a href="https://github.com/w3c/w3c-website">Give feedback</a> to help us improve it.</p>
+            <img class="icon" src="/assets/website-2021/svg/lock.svg" width="20" height="20" alt="" aria-hidden="true">
+            <p>This page is restricted to W3C Members</p>
         </div>
     </div>
+    {% endif %}
     <nav id="lang-nav" aria-label="Language options">
         <div class="l-center">
             <div class="l-cluster">
