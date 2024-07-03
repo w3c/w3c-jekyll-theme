@@ -27,8 +27,8 @@
                             <h2 class="txt-jupiter">Related content</h2>
                             <ul class="clean-list" role="list">
                             {% for item in site.data.navigation.pages %}
-                              <li class="{% if page.url == item.html %}active{% endif %}">
-                              <a href="{{ item.url }}">{{ item.title }}</a>
+                              <li>
+                              <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
                               </li>
                             {% endfor %}
                             </ul>
