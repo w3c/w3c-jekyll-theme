@@ -1,0 +1,14 @@
+<nav id="breadcrumb" aria-label="Breadcrumb">
+    <div class="l-center">
+        <div class="l-cluster">
+            <ol class="breadcrumbs clean-list" role="list">
+                <li><a href="/">Home</a></li>
+                {% for item in site.data.navigation.pages %}
+                {% if item.html == page.url or forloop.index0 == 0 %}
+                <li><a href="{{ item.url }}"{% if item.html == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</nav>
