@@ -1,0 +1,20 @@
+{% if site.translations %}
+<nav class="l-box l-box--no-border translations" aria-label="translations">
+    <div class="l-sidebar">
+        <div>
+            <div class="sidebar">
+                <span>Read this page in:</span>
+            </div>
+            <div class="not-sidebar">
+                <div class="l-cluster">
+                    <ul class="clean-list">
+                        {% for item in page.translations %}
+                        <li><a href="{{ item.link }}" hreflang="{{ item.lang }}" lang="{{ item.lang }}">{{ item.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+{% endif %}
