@@ -1,12 +1,16 @@
+{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+{% assign first = site.data.navigation.pages[0] %}
 <nav id="breadcrumb" aria-label="Breadcrumb">
     <div class="l-center">
         <div class="l-cluster">
             <ol class="breadcrumbs clean-list" role="list">
                 <li><a href="/">Home</a></li>
-                {% for item in site.data.navigation.pages %}
-                {% if item.html == page.url or forloop.index0 == 0 %}
-                <li><a href="{{ item.url }}"{% if item.html == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
-                {% endif %}
+                <li><a href="{{ first.url }}"{% if crumbs.size == 0 %} aria-current="page"{% endif %}>{{ first.title }}</a></li>
+                {% for crumb in crumbs offset: 1 %}
+                    {% assign crumb_limit = forloop.index | plus: 1 %}
+                    {% capture url %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'.html/','.html' }}{% endfor %}{% endcapture %}
+                    {% capture title %}{% for item in site.pages %}{% if item.url == url %}{{ item.title }}{% endif %}{% endfor %}{% endcapture %}
+                    <li><a href="{{site.baseurl}}{{url}}" {% if forloop.last %} aria-current="page"{% endif %}>{% if title != "" %}{{ title }}{% else %} {{ crumb | remove:'.html' | capitalize }}{% endif %}</a></li>
                 {% endfor %}
             </ol>
         </div>
