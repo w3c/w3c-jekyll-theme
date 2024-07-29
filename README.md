@@ -1,3 +1,5 @@
+⚠️⚠️**This Jekyll theme is a work in progress and is not ready for production yet!**⚠️⚠️
+
 ## Introduction
 
 This Jekyll theme provides a simple way to generate pages with the [W3C style](https://design-system.w3.org/).
@@ -18,7 +20,7 @@ Before you begin, make sure you have the following installed:
 
   Add the following lines to your `_config.yml`:
    ```sh
-    remote_theme: deniak/w3c-jekyll-theme
+    remote_theme: w3c/w3c-jekyll-theme
     plugins:
     - jekyll-remote-theme
    ```
