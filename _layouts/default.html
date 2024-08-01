@@ -15,7 +15,9 @@
             <main id="main">
                 <div class="content">
                     <article>
+                        {%- if page.title -%}
                         <h1>{{ page.title }}</h1>
+                        {%- endif -%}
                         {% include translations.html %}
                         <div class="component component--text">
                             {{ content }}
