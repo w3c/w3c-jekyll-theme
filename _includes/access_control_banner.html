@@ -1,0 +1,22 @@
+{% if site.member_only == true %}
+<div class="banner banner--access-control acl-member">
+    <div class="banner__inner l-center">
+        <img class="icon" src="https://www.w3.org/assets/website-2021/svg/lock.svg" width="20" height="20" alt="" aria-hidden="true">
+        <p>This page is restricted to W3C Members</p>
+    </div>
+</div>
+{% elsif site.team_only == true %}
+<div class="banner banner--access-control acl-team">
+    <div class="banner__inner l-center">
+        <img class="icon" src="https://www.w3.org/assets/website-2021/svg/lock.svg" width="20" height="20" alt="" aria-hidden="true"/>
+        <p>This page is restricted to W3C Staff</p>
+    </div>
+</div>
+{% elsif site.private == true %}
+<div class="banner banner--access-control acl-private">
+    <div class="banner__inner l-center">
+        <img class="icon" src="https://www.w3.org/assets/website-2021/svg/lock.svg" width="20" height="20" alt="" aria-hidden="true"/>
+        <p>This page is restricted</p>
+    </div>
+</div>
+{% endif %}

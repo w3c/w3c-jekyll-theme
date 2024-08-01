@@ -1,13 +1,6 @@
 <header class="global-header">
     <span role="status" aria-live="polite"></span>
-    {% if site.member_only == true %}
-    <div class="banner banner--access-control acl-member">
-        <div class="banner__inner l-center">
-            <img class="icon" src="https://www.w3.org/assets/website-2021/svg/lock.svg" width="20" height="20" alt="" aria-hidden="true">
-            <p>This page is restricted to W3C Members</p>
-        </div>
-    </div>
-    {% endif %}
+    {% include access_control_banner.html %}
     <nav id="lang-nav" aria-label="Language options">
         <div class="l-center">
             <div class="l-cluster">

@@ -65,6 +65,11 @@ pages:
     html: contact.html
 ```
 
+## Design system components
+
+A few components from the design system are [available](https://github.com/w3c/w3c-jekyll-theme/tree/main/_includes) with this theme.
+Examples on these components can be found [here](https://w3c.github.io/w3c-jekyll-theme/components.html).
+
 ## Deployment
 
 ### GitHub Pages

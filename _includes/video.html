@@ -1,0 +1,8 @@
+<figure class="component component--video">
+    <div class="l-frame l-frame--16-9">
+        <iframe title="Video title" loading="lazy" width="{{ include.width | default: 560 }}" height="{{ include.height | default: 315 }}" src="{{ include.src }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <figcaption>
+        {{ include.caption }}
+    </figcaption>
+</figure>
