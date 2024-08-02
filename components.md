@@ -1,7 +1,13 @@
 ---
 title: Components
 layout: basic
-member_only: true
+translations:
+  - link: fr.html
+    lang: fr
+    label: Francais
+  - link: en.html
+    lang: en
+    label: English
 ---
 
 # Collapsible containers
@@ -60,3 +66,8 @@ member_only: true
 [Quote component](https://design-system.w3.org/components/quote.html)
 
 {% include quote.html content="The goal of the Web is to serve humanity. We build it now so that those who come to it later will be able to create things we cannot ourselves imagine." footer="Sir Tim Berners-Lee" %}
+
+# Translations
+[Translation component](https://design-system.w3.org/components/translations.html)
+
+{% include translations.html %}
