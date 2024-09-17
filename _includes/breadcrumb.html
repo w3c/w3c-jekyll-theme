@@ -1,10 +1,25 @@
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 {% assign first = site.data.navigation.pages[0] %}
+{% assign base = site.baseurl | split: '/' %}
 <nav id="breadcrumb" aria-label="Breadcrumb">
     <div class="l-center">
         <div class="l-cluster">
             <ol class="breadcrumbs clean-list" role="list">
                 <li><a href="/">Home</a></li>
+                {% assign lim = base.size|minus:2 %}
+                {% for item in base offset: 1, limit: lim %}
+                    {% assign i = forloop.index|plus:1 %}
+                    {% for urlitem in base offset: 1 %}
+                    {% if forloop.index == i %}
+                        {% break %}
+                    {% endif %}
+                    {% if forloop.first %}
+                        {% assign url = '/' %}
+                    {% endif %}
+                    {% assign url = url | append: urlitem | append: '/' %}
+                    {% endfor %}
+                    <li><a href="{{ url }}">{{ item | replace: "-", " " | capitalize }}</a></li>
+                {% endfor %}
                 <li><a href="{{ first.url }}"{% if crumbs.size == 0 %} aria-current="page"{% endif %}>{{ first.title }}</a></li>
                 {% for crumb in crumbs offset: 1 %}
                     {% assign crumb_limit = forloop.index | plus: 1 %}
