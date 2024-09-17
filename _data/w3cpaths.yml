@@ -1,0 +1,20 @@
+sites:
+
+- id: board-of-directors
+  path:
+    - title: Home
+      url: /
+    - title: Member
+      url: /Member/
+
+- id: device-and-sensors
+  path:
+    - title: Home
+      url: /
+
+- id: machine-learning-workshop
+  path:
+    - title: Home
+      url: /
+    - title: Workshops
+      url: /workshops/
