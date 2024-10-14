@@ -10,6 +10,12 @@
             {% include header.html %}
             <main id="main">
                 <h1>{{ page.title | default: site.github.repository_name }}</h1>
+                {% if page.toc == true %}
+                <nav class="toc" aria-labelledby="toc-label">
+                    <h2 id="toc-label">Page contents</h2>
+                    {{ content | toc_only }}
+                </nav>
+                {% endif %}
               	{{ content }}
             </main>
         </div>
