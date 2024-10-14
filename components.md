@@ -71,3 +71,8 @@ translations:
 [Translation component](https://design-system.w3.org/components/translations.html)
 
 {% include translations.html %}
+
+# Avatar
+[Avatars](https://design-system.w3.org/styles/avatars.html)
+
+{% include avatar.html avatarurl="https://www.w3.org/assets/website-2021/svg/avatar.svg" %}
