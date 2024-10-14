@@ -1,9 +1,6 @@
-⚠️⚠️**This Jekyll theme is a work in progress and is not ready for production yet!**⚠️⚠️
-
 ## Introduction
 
-This Jekyll theme provides a simple way to generate pages with the [W3C style](https://design-system.w3.org/).
-
+This Jekyll theme provides a simple way to generate pages with the [W3C style](https://design-system.w3.org/). That theme is meant to be used by W3C-related websites.
 
 ## Installation
 
@@ -27,9 +24,16 @@ Before you begin, make sure you have the following installed:
 
 2. **Run Jekyll**
 
+  If you have more ruby dependencies and rely on `bundler`, you can execute jekyll with:
    ```sh
+   bundle install
    bundle exec jekyll serve
    ```
+
+  Otherwise, you can simply run:
+  ```sh
+  jekyll serve
+  ```
 
 4. Open your browser and go to `http://localhost:4000` to see your new site.
 
@@ -45,24 +49,43 @@ description: A brief description of your site
 baseurl: "" # the subpath of your site, e.g. /blog
 ```
 
+If the pages are restricted to W3C members only, you may add the following property to display a banner:
+
+```yaml
+member_only: true
+```
+
 ### Navigation
 
-Update the navigation links in `_data/navigation.yml`:
+You will need to specify where the website will be located and provide a list of pages that will appear in the navigation menu.
+
+For instance, if the website is located under https://www.w3.org/jekyll/theme/, then create the following YAML file `_data/subpath.yml` to help generate the breadcrumb:
+```yaml
+path:
+  - title: Home
+    url: /
+  - title: Jekyll
+    url: /jekyll/
+  - title: W3C Theme
+    url: /theme/
+```
+
+For the navigation menu, create the YAML file `_data/navigation.yml`, e.g.:
 
 ```yaml
 pages:
-  - title: Home
-    url: /
+  - title: W3C Jekyll theme
+    url: /jekyll/theme/
     html: /
   - title: About
-    url: about
-    html: about.html
+    url: /jekyll/theme/about/
+    html: /about/
   - title: Blog
-    url: blog
-    html: blog.html
+    url: /jekyll/theme/blog/
+    html: /blog/
   - title: Contact
-    url: contact
-    html: contact.html
+    url: /jekyll/theme/contact/
+    html: /contact/
 ```
 
 ## Design system components
@@ -77,5 +100,5 @@ Examples on these components can be found [here](https://w3c.github.io/w3c-jekyl
 1. Push your code to a new repository on GitHub.
 2. Go to the repository settings.
 3. Scroll down to the GitHub Pages section.
-4. Select the branch you want to publish from (usually `main` or `master`).
+4. Select the branch you want to publish from (usually `main`).
 5. Your site should be live at `https://your-username.github.io/repository-name`.
