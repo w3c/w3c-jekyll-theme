@@ -55,6 +55,17 @@ If the pages are restricted to W3C members only, you may add the following prope
 member_only: true
 ```
 
+### Page Settings
+
+For each page, you need to specify their layout (`default` or `basic`) and title.
+
+```yml
+---
+layout: default
+title: "This is the page title"
+---
+```
+
 ### Navigation
 
 You will need to specify where the website will be located and provide a list of pages that will appear in the navigation menu.
@@ -87,6 +98,32 @@ pages:
     url: /jekyll/theme/contact/
     html: /contact/
 ```
+
+### Table of content
+
+It is possible to automatically generate the table of contents on a page, using the [`jekyll-toc` plugin](https://github.com/toshimaru/jekyll-toc).
+You first need to declare the dependency in the `Gemfile`
+```
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.1.0"
+
+group :jekyll_plugins do
+  gem 'jekyll-remote-theme'
+  gem 'jekyll-toc'
+  gem 'webrick'
+end
+```
+
+and install it by running `bundle install`.
+
+Once it's done, you can enable it in the `_config.yml`:
+```
+toc:
+  max_level: 3 # edit the level depending on your needs
+```
+
+Finally, add `toc: true` to the page properties of the page you want to add the table of contents on.
 
 ## Design system components
 
