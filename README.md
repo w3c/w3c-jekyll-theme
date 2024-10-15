@@ -59,7 +59,7 @@ member_only: true
 
 For each page, you need to specify their layout (`default` or `basic`) and title.
 
-```
+```yml
 ---
 layout: default
 title: "This is the page title"
