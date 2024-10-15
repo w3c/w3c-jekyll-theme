@@ -1,6 +1,6 @@
 ## Introduction
 
-This Jekyll theme provides a simple way to generate pages with the [W3C style](https://design-system.w3.org/). That theme is meant to be used by W3C-related websites.
+This Jekyll theme provides a simple way to generate pages with the [W3C style](https://design-system.w3.org/). That Jekyll theme and the W3C Design System should only be used for content served under a w3.org URI such as the [main W3C website](https://www.w3.org/).
 
 ## Installation
 
