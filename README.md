@@ -15,27 +15,30 @@ Before you begin, make sure you have the following installed:
 
 1. **Configure your repository to use the theme `w3c/w3c-jekyll-theme`**
 
-  Add the following lines to your `_config.yml`:
-   ```sh
+    Add the following lines to your `_config.yml`:
+
+    ```yaml
     remote_theme: w3c/w3c-jekyll-theme
     plugins:
     - jekyll-remote-theme
-   ```
+    ```
 
-2. **Run Jekyll**
+3. **Run Jekyll**
 
-  If you have more ruby dependencies and rely on `bundler`, you can execute jekyll with:
-   ```sh
-   bundle install
-   bundle exec jekyll serve
-   ```
+    If you have more ruby dependencies and rely on `bundler`, you can execute jekyll with:
 
-  Otherwise, you can simply run:
-  ```sh
-  jekyll serve
-  ```
+    ```sh
+    bundle install
+    bundle exec jekyll serve
+    ```
 
-4. Open your browser and go to `http://localhost:4000` to see your new site.
+    Otherwise, you can simply run:
+
+    ```sh
+    jekyll serve
+    ```
+
+5. Open your browser and go to `http://localhost:4000` to see your new site.
 
 ## Configuration
 
@@ -131,6 +134,7 @@ Note that `submenu` accepts multiple ids to display different menus.
 
 It is possible to automatically generate the table of contents on a page, using the [`jekyll-toc` plugin](https://github.com/toshimaru/jekyll-toc).
 You first need to declare the dependency in the `Gemfile`
+
 ```
 source "https://rubygems.org"
 
@@ -146,6 +150,7 @@ end
 and install it by running `bundle install`.
 
 Once it's done, you can enable it in the `_config.yml`:
+
 ```yaml
 toc:
   max_level: 3 # edit the level depending on your needs
