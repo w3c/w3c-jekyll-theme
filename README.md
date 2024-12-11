@@ -71,6 +71,7 @@ title: "This is the page title"
 You will need to specify where the website will be located and provide a list of pages that will appear in the navigation menu.
 
 For instance, if the website is located under https://www.w3.org/jekyll/theme/, then create the following YAML file `_data/subpath.yml` to help generate the breadcrumb:
+
 ```yaml
 path:
   - title: Home
@@ -145,7 +146,7 @@ end
 and install it by running `bundle install`.
 
 Once it's done, you can enable it in the `_config.yml`:
-```
+```yaml
 toc:
   max_level: 3 # edit the level depending on your needs
 ```
@@ -162,7 +163,7 @@ Examples on these components can be found [here](https://w3c.github.io/w3c-jekyl
 ### GitHub Pages
 
 1. Push your code to a new repository on GitHub.
-2. Go to the repository settings.
-3. Scroll down to the GitHub Pages section.
-4. Select the branch you want to publish from (usually `main`).
-5. Your site should be live at `https://your-username.github.io/repository-name`.
+1. Go to the repository settings.
+1. Scroll down to the GitHub Pages section.
+1. Select the branch you want to publish from (usually `main`).
+1. Your site should be live at `https://your-username.github.io/repository-name`.
