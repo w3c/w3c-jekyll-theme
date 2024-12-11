@@ -99,6 +99,33 @@ pages:
     html: /contact/
 ```
 
+#### Additional sub-menus
+
+The `default` layout offers to possibility to add additional menus below the navigation. All you need to do is to add the corresponding YAML file under the `_data` directory of your project with the name `submenu-@menuid.yml` where `@menuid` is the menu identifier, e.g.:
+
+```yaml
+title: another menu
+
+pages:
+
+- title: foo
+  url: /foo/
+  html: /foo/
+
+- title: bar
+  url: https://www.example.org/
+```
+
+Then, you just need to add the following `submenu` property in your page, e.g.
+
+```yaml
+title: this is a jekyll page
+submenu: [@menuid]
+```
+
+Note that `submenu` accepts multiple ids to display different menus.
+
+
 ### Table of content
 
 It is possible to automatically generate the table of contents on a page, using the [`jekyll-toc` plugin](https://github.com/toshimaru/jekyll-toc).
