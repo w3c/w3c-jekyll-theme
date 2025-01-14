@@ -60,7 +60,7 @@ Bundler version 2.4.20
     ```yml
     remote_theme: w3c/w3c-jekyll-theme
     plugins:
-    - jekyll-remote-theme # plugin only needed if you skipped the jekylkl dependencies section
+    - jekyll-remote-theme # plugin only needed if you skipped the jekyll dependencies section
     ```
 
 3. **Run Jekyll**
