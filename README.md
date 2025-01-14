@@ -28,16 +28,10 @@ echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.bash_prof
 echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.bash_profile
 echo "chruby ruby-3.2.3" >> ~/.bash_profile
 
-## Confirm your Ruby and Bundler versions
-$ ruby --version
-ruby 3.2.3
-$ bundle version
-Bundler version 2.4.20
-```
-
 ### Theme Installation
 
 1. **Specify your Jekyll dependencies (optional)**
+
     Create the file `Gemfile` at the root of your project. You may skip this step if you don't need the Jekyll plugins listed below but you will have to specify the `jekyll-remote-theme` plugin in your `_config.yml` file (see the [Jekyll configuration](#jekyll-configuration) section):
 
    ```gem
@@ -211,7 +205,7 @@ Examples on these components can be found [here](https://w3c.github.io/w3c-jekyl
 
 ### GitHub Pages
 
-There are two ways to deploy on GitHub pages depending on whether your site depends on specificy jekyll dependencies. By default, GitHub pages come with a bunch of [jekyll plugins](https://pages.github.com/versions/). If you need other dependencies, e.g. jekyll-toc or jekyll-commonmark,to be installed with bundler, you will have to use a GitHub action to generate and deploy the pages.
+There are two ways to deploy on GitHub pages depending on whether your site rely on specific Jekyll dependencies. By default, GitHub pages come with a bunch of [Jekyll plugins](https://pages.github.com/versions/). If you need other dependencies to be installed with bundler (e.g. `jekyll-toc` or `jekyll-commonmark`) you will have to use a GitHub action to generate and deploy the pages.
 
 #### Without additional dependencies
 
