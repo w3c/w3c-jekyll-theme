@@ -45,7 +45,7 @@ Bundler version 2.4.20
    gem "jekyll", "~> 4.1.0"
 
    group :jekyll_plugins do
-       gem 'jekyll-commonmark'
+       gem 'jekyll-commonmark' # adds additional markup features such as dl/dt/dd, allowing custom ids, etc
        gem 'jekyll-remote-theme'
        gem 'webrick'
    end
@@ -211,8 +211,73 @@ Examples on these components can be found [here](https://w3c.github.io/w3c-jekyl
 
 ### GitHub Pages
 
+There are two ways to deploy on GitHub pages depending on whether your site depends on specificy jekyll dependencies. By default, GitHub pages come with a bunch of [jekyll plugins](https://pages.github.com/versions/). If you need other dependencies, e.g. jekyll-toc or jekyll-commonmark,to be installed with bundler, you will have to use a GitHub action to generate and deploy the pages.
+
+#### Without additional dependencies
+
 1. Push your code to a new repository on GitHub.
 1. Go to the repository settings.
 1. Scroll down to the GitHub Pages section.
 1. Select the branch you want to publish from (usually `main`).
 1. Your site should be live at `https://your-username.github.io/repository-name`.
+
+#### With additional dependencies
+
+1. Push your code to a new repository on GitHub.
+1. Go to the repository settings.
+1. Scroll down to the GitHub Pages section.
+1. Select "GitHub actions" as the source of your GitHub Pages
+1. Create the following workflow in your repository, e.g. `.github/workflows/jekyll-gh-pages.yml`:
+    ```yml
+    name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+    on:
+      # Runs on pushes targeting the default branch
+      push:
+        branches: ["main"]
+    
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    
+    jobs:
+      # Build job
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+          - name: Setup Ruby
+            uses: ruby/setup-ruby@086ffb1a2090c870a3f881cc91ea83aa4243d408 # v1.195.0
+            with:
+              ruby-version: '3.2.3' # Not needed with a .ruby-version file
+              bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          - name: Build with Jekyll
+            # Outputs to the './_site' directory by default
+            run: bundle exec jekyll build
+            env:
+              JEKYLL_ENV: production
+          - name: Upload artifact
+            id: github-pages
+            uses: actions/upload-pages-artifact@v3
+            with:
+              name: github-pages
+              path: _site/
+    
+      # Deployment job
+      deploy:
+        needs: build
+        permissions:
+          pages: write
+          id-token: write
+        environment:
+          name: github-pages
+          url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+          - name: Deploy to GitHub Pages
+            id: deployment
+            uses: actions/deploy-pages@v4
+    ```
