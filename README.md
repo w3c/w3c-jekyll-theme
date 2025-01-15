@@ -27,6 +27,7 @@ ruby-install ruby 3.2.3
 echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.bash_profile
 echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.bash_profile
 echo "chruby ruby-3.2.3" >> ~/.bash_profile
+```
 
 ### Theme Installation
 
@@ -147,13 +148,10 @@ The `default` layout offers to possibility to add additional menus below the nav
 
 ```yaml
 title: another menu
-
 pages:
-
 - title: foo
   url: /foo/
   html: /foo/
-
 - title: bar
   url: https://www.example.org/
 ```
