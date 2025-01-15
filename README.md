@@ -171,7 +171,7 @@ Note that `submenu` accepts multiple ids to display different menus.
 It is possible to automatically generate the table of contents on a page, using the [`jekyll-toc` plugin](https://github.com/toshimaru/jekyll-toc).
 You first need to declare the dependency in the `Gemfile`
 
-```
+```ruby
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.1.0"
