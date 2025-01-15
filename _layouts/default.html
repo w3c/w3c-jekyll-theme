@@ -25,7 +25,9 @@
                             {{ content | toc_only }}
                         </nav>
                         {% endif %}
-                        {{ content }}
+                        <div class="component component--text">
+                          {{ content }}
+                        </div>
                     </article>
                     {% if site.data.navigation.pages %}
                     <section class="related">
