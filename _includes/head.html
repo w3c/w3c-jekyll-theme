@@ -4,7 +4,7 @@
 
     <title>{{ page.title | default: site.github.repository_name }}</title>
 
-    <meta property="og:description" name="description" content="Basic page template from the W3C design system"/>
+    {% if site.description %}<meta property="og:description" name="description" content="{{ site.description }}"/>{% endif %}
     <meta property="og:image" name="image" content="https://www.w3.org/assets/website-2021/images/w3c-opengraph-image.png">
 
     <script src="https://www.w3.org/assets/website-2021/js/libraries/fontfaceobserver.js"></script>
