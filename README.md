@@ -8,7 +8,7 @@ This Jekyll theme provides a simple way to generate pages with the [W3C style](h
 
 Before you begin, make sure you have the following installed:
 
-- [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+- [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (<= 3.2)
 - [Bundler](https://bundler.io/)
 
 On Ubuntu (24.04 LTS):
@@ -22,11 +22,11 @@ bundle config path ~/.bundler
 On MacOS:
 ```shell
 brew install chruby ruby-install
-ruby-install ruby 3.2.3
+ruby-install ruby 3.2
 # Update your bash profile to use this version of Ruby
 echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.bash_profile
 echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.bash_profile
-echo "chruby ruby-3.2.3" >> ~/.bash_profile
+echo "chruby ruby-3.2" >> ~/.bash_profile
 ```
 
 ### Theme Installation
@@ -86,7 +86,7 @@ remote_theme: w3c/w3c-jekyll-theme
 title: Your Site Title
 description: A brief description of your site
 baseurl: "" # the subpath of your site, e.g. /blog
-member_only: true # if set to true, the pages will display a member-only banner
+acl: member # the pages will display a member-only banner
 defaults:
   -
     scope:
@@ -273,3 +273,43 @@ There are two ways to deploy on GitHub pages depending on whether your site rely
             id: deployment
             uses: actions/deploy-pages@v4
     ```
+
+### Push the generated files on a specific branch
+
+You may also decide to move the generated pages onto a given branch to deploy them somewhere else. In this case, you can use the following GitHub action after granting write access to the workflow (Settings -> Actions -> General -> select "Read and write permissions" in the "Workflow permissions" section):
+```yml
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Build with Jekyll
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Deploy to "rendered" branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: rendered # name of the branch
+          FOLDER: _site
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
