@@ -35,7 +35,7 @@ echo "chruby ruby-3.2.3" >> ~/.bash_profile
 
     Create the file `Gemfile` at the root of your project. You may skip this step if you don't need the Jekyll plugins listed below but you will have to specify the `jekyll-remote-theme` plugin in your `_config.yml` file (see the [Jekyll configuration](#jekyll-configuration) section):
 
-   ```gem
+   ```ruby
    source "https://rubygems.org"
    gem "jekyll", "~> 4.1.0"
 
@@ -242,9 +242,9 @@ There are two ways to deploy on GitHub pages depending on whether your site rely
           - name: Checkout
             uses: actions/checkout@v4
           - name: Setup Ruby
-            uses: ruby/setup-ruby@086ffb1a2090c870a3f881cc91ea83aa4243d408 # v1.195.0
+            uses: ruby/setup-ruby@v1
             with:
-              ruby-version: '3.2.3' # Not needed with a .ruby-version file
+              ruby-version: '3.2'
               bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           - name: Build with Jekyll
             # Outputs to the './_site' directory by default
