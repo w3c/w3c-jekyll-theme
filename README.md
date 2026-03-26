@@ -23,10 +23,10 @@ On MacOS:
 ```shell
 brew install chruby ruby-install
 ruby-install ruby 3.2
-# Update your bash profile to use this version of Ruby
-echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.bash_profile
-echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.bash_profile
-echo "chruby ruby-3.2" >> ~/.bash_profile
+# Update your zsh profile to use this version of Ruby
+echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zprofile
+echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zprofile
+echo "chruby ruby-3.2" >> ~/.zprofile
 ```
 
 ### Theme Installation
