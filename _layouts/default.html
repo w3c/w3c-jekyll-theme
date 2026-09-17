@@ -5,64 +5,58 @@
 
 <body class="default">
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="grid-wrap">
-        <div class="wrap">
+   {% include header_with_menu.html %}
 
-            {% include header_with_menu.html %}
-
-            {% include breadcrumb.html %}
-            
-            <main id="main">
-                <div class="content">
-                    <article>
-                        {%- if page.title -%}
-                        <h1>{{ page.title }}</h1>
-                        {%- endif -%}
-                        {% include translations.html %}
-                        {% if page.toc == true %}
-                        <nav class="toc" aria-labelledby="toc-label">
-                            <h2 id="toc-label">Page contents</h2>
-                            {{ content | toc_only }}
-                        </nav>
-                        {% endif %}
-                        <div class="component component--text">
-                          {{ content }}
-                        </div>
-                    </article>
-                    {% if site.data.navigation.pages %}
-                    <section class="related">
-                        <div class="related__inner">
-                            <h2 class="txt-jupiter">Related content</h2>
-                            <ul class="clean-list" role="list">
-                            {% for item in site.data.navigation.pages %}
-                              <li>
-                              <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
-                              </li>
-                            {% endfor %}
-                            </ul>
-                        </div>
-                        {% for item in page.submenu %}
-                            {% assign s = "submenu-" | append: item %}
-                            <div class="related__inner family-grouping">
-                                <h2 class="txt-jupiter">{{ site.data[s].title }}</h2>
-                                 <ul class="clean-list" role="list">
-                                    {% for item in site.data[s].pages %}
-                                    <li>
-                                        <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        {% endfor %}
-                    </section>
-                    {% endif %}
-                </div>
-                {% include prefooter.html %}
-            </main>  
-        </div>
-        {% include footer.html %}
-
-    </div>
+   {% include breadcrumb.html %}
+   
+   <main id="main">
+       <div class="content">
+           <article>
+               {%- if page.title -%}
+               <h1>{{ page.title }}</h1>
+               {%- endif -%}
+               {% include translations.html %}
+               {% if page.toc == true %}
+               <nav class="toc" aria-labelledby="toc-label">
+                   <h2 id="toc-label">Page contents</h2>
+                   {{ content | toc_only }}
+               </nav>
+               {% endif %}
+               <div class="component component--text">
+                 {{ content }}
+               </div>
+           </article>
+           {% if site.data.navigation.pages %}
+           <section class="related">
+               <div class="related__inner">
+                   <h2 class="txt-jupiter">Related content</h2>
+                   <ul class="clean-list" role="list">
+                   {% for item in site.data.navigation.pages %}
+                     <li>
+                     <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                     </li>
+                   {% endfor %}
+                   </ul>
+               </div>
+               {% for item in page.submenu %}
+                   {% assign s = "submenu-" | append: item %}
+                   <div class="related__inner family-grouping">
+                       <h2 class="txt-jupiter">{{ site.data[s].title }}</h2>
+                        <ul class="clean-list" role="list">
+                           {% for item in site.data[s].pages %}
+                           <li>
+                               <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                           </li>
+                           {% endfor %}
+                       </ul>
+                   </div>
+               {% endfor %}
+           </section>
+           {% endif %}
+       </div>
+       {% include prefooter.html %}
+   </main>  
+   {% include footer.html %}
 </body>
 
 </html>

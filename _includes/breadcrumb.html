@@ -5,7 +5,7 @@
     <div class="l-center">{{s}}
         {% if paths.size > 0 %}
         <div class="l-cluster">
-            <ol class="breadcrumbs clean-list" role="list">
+            <ol class="breadcrumbs clean-list">
                 {% for p in paths %}
                 <li><a href="{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
