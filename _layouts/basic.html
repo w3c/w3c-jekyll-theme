@@ -5,25 +5,19 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="grid-wrap">
-        <div class="wrap">
-            {% include header.html %}
-            <main id="main">
-                <h1>{{ page.title | default: site.github.repository_name }}</h1>
-                {% if page.toc == true %}
-                <nav class="toc" aria-labelledby="toc-label">
-                    <h2 id="toc-label">Page contents</h2>
-                    {{ content | toc_only }}
-                </nav>
-                {% endif %}
-                <div class="component component--text">
-              	    {{ content }}
-                </div>
-                {% include prefooter.html %}
-            </main>
-        </div>
-      {% include footer.html %}
-    </div>
+    {% include header.html %}
+    <main id="main">
+        <h1>{{ page.title | default: site.github.repository_name }}</h1>
+        {% if page.toc == true %}
+        <nav class="toc" aria-labelledby="toc-label">
+            <h2 id="toc-label">Page contents</h2>
+            {{ content | toc_only }}
+        </nav>
+        {% endif %}
+        {{ content }}
+        {% include prefooter.html %}
+        </main>
+    {% include footer.html %}
 </body>
 
 </html>
