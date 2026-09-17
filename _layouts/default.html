@@ -27,8 +27,8 @@
            {% if site.data.navigation.pages %}
            <section class="related">
                <div class="related__inner">
-                   <h2 class="txt-jupiter">Related content</h2>
-                   <ul class="clean-list" role="list">
+                   <h2 id="related-label">Related content</h2>
+                   <ul>
                    {% for item in site.data.navigation.pages %}
                      <li>
                      <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
