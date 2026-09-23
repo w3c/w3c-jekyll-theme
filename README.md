@@ -194,6 +194,22 @@ toc:
 
 Finally, add `toc: true` to the page properties of the page you want to add the table of contents on.
 
+### Additional stylesheets
+
+If a page needs its own stylesheet(s) on top of the theme's, add a `stylesheets` property to the page's front matter with a list of URLs:
+
+```yaml
+---
+layout: default
+title: "This is the page title"
+stylesheets:
+  - /assets/css/custom.css
+  - https://example.org/extra.css
+---
+```
+
+These stylesheets are included in `<head>` after the theme's own styles, so they can override the default styling.
+
 ## Design system components
 
 A few components from the design system are [available](https://github.com/w3c/w3c-jekyll-theme/tree/main/_includes) with this theme.

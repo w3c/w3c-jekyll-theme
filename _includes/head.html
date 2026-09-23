@@ -22,6 +22,12 @@
             ">
     <link rel="stylesheet" href="https://www.w3.org/assets/website-2021/styles/print.css" media="print"/>
 
+    {% if page.stylesheets %}
+    {% for stylesheet in page.stylesheets %}
+    <link rel="stylesheet" href="{{ stylesheet }}"/>
+    {% endfor %}
+    {% endif %}
+
     <script src="https://www.w3.org/assets/website-2021/js/libraries/fontfaceobserver.js"></script>
 
     <script>
