@@ -39,7 +39,7 @@
                {% for item in page.submenu %}
                    {% assign s = "submenu-" | append: item %}
                    <div class="related__inner family-grouping">
-                       <h2 class="txt-jupiter">{{ site.data[s].title }}</h2>
+                       <h2>{{ site.data[s].title }}</h2>
                         <ul class="clean-list" role="list">
                            {% for item in site.data[s].pages %}
                            <li>
