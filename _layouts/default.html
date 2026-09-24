@@ -26,27 +26,31 @@
            </article>
            {% if site.data.navigation.pages %}
            <section class="related">
-               <div class="related__inner">
-                   <h2 id="related-label">Related content</h2>
-                   <ul>
-                   {% for item in site.data.navigation.pages %}
-                     <li>
-                     <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
-                     </li>
-                   {% endfor %}
-                   </ul>
+               <div class="related">
+                   <nav class="related__inner" aria-labelledby="related-label">
+                       <h2 id="related-label">Related content</h2>
+                       <ul>
+                       {% for item in site.data.navigation.pages %}
+                         <li>
+                         <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                         </li>
+                       {% endfor %}
+                       </ul>
+                   </nav>
                </div>
                {% for item in page.submenu %}
                    {% assign s = "submenu-" | append: item %}
-                   <div class="related__inner family-grouping">
-                       <h2>{{ site.data[s].title }}</h2>
-                        <ul class="clean-list" role="list">
-                           {% for item in site.data[s].pages %}
-                           <li>
-                               <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
-                           </li>
-                           {% endfor %}
-                       </ul>
+                   <div class="family-grouping">
+                       <nav class="related__inner" aria-labelledby="related-label">
+                           <h2>{{ site.data[s].title }}</h2>
+                           <ul>
+                              {% for item in site.data[s].pages %}
+                              <li>
+                                  <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                              </li>
+                              {% endfor %}
+                           </ul>
+                       </nav>
                    </div>
                {% endfor %}
            </section>
