@@ -1,4 +1,5 @@
-<div class="l-box note note--success" role="status">
-    <h2 id="success-summary-title" class="h5">{{ include.title }}</h2>
-    <p>{{ include.content }}</p>
+{%- assign note_id = include.id | default: "success-summary-title" -%}
+<div class="l-box note note--success" role="status" aria-labelledby="{{ note_id }}" tabindex="-1" data-anchor="no">
+    <h2 id="{{ note_id }}" class="h5">{{ include.title }}</h2>
+    {{ include.content | markdownify }}
 </div>

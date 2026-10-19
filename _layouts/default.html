@@ -12,6 +12,10 @@
    <main id="main">
        <div class="content">
            <article>
+               {%- if page.note -%}
+               {%- capture note_include %}notes_{{ page.note.type | default: "info" }}.html{% endcapture -%}
+               {% include {{ note_include }} id=page.note.id title=page.note.title content=page.note.content %}
+               {%- endif %}
                {%- if page.title -%}
                <h1>{{ page.title }}</h1>
                {%- endif -%}

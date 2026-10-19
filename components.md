@@ -62,6 +62,16 @@ translations:
 {% include notes_warning.html title="This is a warning note" content="Hello World!" %}
 {% include notes_error.html title="This is an error note" content="Hello World!" %}
 
+Notes can also be placed above the page title (between the breadcrumb and the `h1`) with `note` front matter. `type` is `info` (default), `success`, `warning` or `error`; `id` should be unique on the page; `content` is Markdown:
+
+```yaml
+note:
+  type: info
+  id: beta-note
+  title: Beta version
+  content: This is in **beta**. See the [ReadMe](https://example.org/).
+```
+
 # Quote
 [Quote component](https://design-system.w3.org/components/quote.html)
 
