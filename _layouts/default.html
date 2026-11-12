@@ -32,7 +32,7 @@
            <section>
                <div class="related">
                    <nav class="related__inner" aria-labelledby="related-label">
-                       <h2 id="related-label">Related content</h2>
+                       <h2 id="related-label">{{ site.data.navigation.title | default: "In this section" }}</h2>
                        <ul>
                        {% for item in site.data.navigation.pages %}
                          <li>
