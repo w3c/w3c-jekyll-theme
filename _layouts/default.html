@@ -29,35 +29,29 @@
                {{ content }}
            </article>
            {% if site.data.navigation.pages %}
-           <section>
-               <div class="related">
-                   <nav class="related__inner" aria-labelledby="related-label">
-                       <h2 id="related-label">{{ site.data.navigation.title | default: "In this section" }}</h2>
+           <div class="related">
+               <nav class="related__inner" aria-labelledby="related-label">
+                   <h2 id="related-label">{{ site.data.navigation.title | default: "In this section" }}</h2>
+                   <ul>
+                   {% for item in site.data.navigation.pages %}
+                     <li>
+                     <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                     </li>
+                   {% endfor %}
+                   </ul>
+                   {% for item in page.submenu %}
+                       {% assign s = "submenu-" | append: item %}
+                       <h2>{{ site.data[s].title }}</h2>
                        <ul>
-                       {% for item in site.data.navigation.pages %}
-                         <li>
-                         <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
-                         </li>
-                       {% endfor %}
+                          {% for item in site.data[s].pages %}
+                          <li>
+                              <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                          </li>
+                          {% endfor %}
                        </ul>
-                   </nav>
-               </div>
-               {% for item in page.submenu %}
-                   {% assign s = "submenu-" | append: item %}
-                   <div class="family-grouping">
-                       <nav class="related__inner" aria-labelledby="related-label">
-                           <h2>{{ site.data[s].title }}</h2>
-                           <ul>
-                              {% for item in site.data[s].pages %}
-                              <li>
-                                  <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
-                              </li>
-                              {% endfor %}
-                           </ul>
-                       </nav>
-                   </div>
-               {% endfor %}
-           </section>
+                   {% endfor %}
+               </nav>
+           </div>
            {% endif %}
        </div>
        {% include prefooter.html %}
