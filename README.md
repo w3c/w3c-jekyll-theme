@@ -110,9 +110,9 @@ title: "This is the page title"
 
 ### Navigation
 
-You will need to specify where the website will be located and provide a list of pages that will appear in the navigation menu.
+You can specify where the website will be located and provide a list of pages that will appear in the navigation menu.
 
-For instance, if the website is located under https://www.w3.org/jekyll/theme/, then create the following YAML file `_data/subpath.yml` to help generate the breadcrumb:
+If the website is deployed under a path of a larger website, for instance https://www.w3.org/jekyll/theme/, create the following YAML file `_data/subpath.yml` to help generate the breadcrumb. This file is optional: if the website is deployed at the root of its domain, omit it and the breadcrumb will start at the first page of `_data/navigation.yml` (or at the site title if there is no navigation).
 
 ```yaml
 path:
