@@ -1,15 +1,16 @@
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 {% assign first = site.data.navigation.pages[0] %}
+{% assign first_title = first.title | default: site.title | default: "Home" %}
+{% assign first_url = first.url | default: site.baseurl | append: "/" %}
 {% assign paths = site.data.subpath.path %}
 <nav id="breadcrumb" aria-label="Breadcrumb">
     <div class="l-center">{{s}}
-        {% if paths.size > 0 %}
         <div class="l-cluster">
             <ol class="breadcrumbs clean-list">
                 {% for p in paths %}
                 <li><a href="{{ p.url }}">{{ p.title }}</a></li>
                 {% endfor %}
-                <li><a href="{{ first.url }}"{% if crumbs.size == 0 %} aria-current="page"{% endif %}>{{ first.title }}</a></li>
+                <li><a href="{{ first_url }}"{% if crumbs.size == 0 %} aria-current="page"{% endif %}>{{ first_title }}</a></li>
                 {% for crumb in crumbs offset: 1 %}
                     {% assign crumb_limit = forloop.index | plus: 1 %}
                     {% capture url %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'.html/','.html' }}{% endfor %}{% endcapture %}
@@ -18,11 +19,5 @@
                 {% endfor %}
             </ol>
         </div>
-        {% else %}
-        <div class="l-box note note--warning" role="alert">
-            <h2 class="h5">Warning</h2>
-            <p>The site subpath is missing. Please review the <a href="https://github.com/w3c/w3c-jekyll-theme">documentation</a> to add it.</p>
-        </div>
-        {% endif %}
     </div>
 </nav>
