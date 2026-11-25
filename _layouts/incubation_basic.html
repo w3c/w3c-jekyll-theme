@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="no-js cg-theme-terracotta">
+
+{% include head_incubation.html %}
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {% include header.html %}
+    <main id="main">
+        {%- if page.note -%}
+        {%- capture note_include %}notes_{{ page.note.type | default: "info" }}.html{% endcapture -%}
+        {% include {{ note_include }} id=page.note.id title=page.note.title content=page.note.content %}
+        {%- endif %}
+        <h1>{{ page.title | default: site.github.repository_name }}</h1>
+        {% if page.toc == true %}
+        <nav class="toc" aria-labelledby="toc-label">
+            <h2 id="toc-label">Page contents</h2>
+            {{ content | toc_only }}
+        </nav>
+        {% endif %}
+        {{ content }}
+        {% include prefooter.html %}
+    </main>
+    {% include footer.html %}
+</body>
+
+</html>

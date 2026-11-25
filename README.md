@@ -210,6 +210,30 @@ stylesheets:
 
 These stylesheets are included in `<head>` after the theme's own styles, so they can override the default styling.
 
+### Incubation layout
+
+The `incubation_default` layout gives the Community Group incubation website (`incubation.w3.org`) its own identity: the terracotta palette (stylesheets `incubation-core.css` and `incubation-advanced.css`, in place of `core.css` and `advanced.css`) and the Community Group menu (`_includes/header_with_menu_incubation.html`). It is otherwise identical to the `default` layout and adds the `cg-theme-terracotta` class on `<html>`.
+
+```yaml
+layout: "incubation_default"
+```
+
+By default the stylesheets are loaded from the W3C dev assets; set `incubation_css_base` in `_config.yml` to the directory holding both files to use another location:
+
+```yaml
+incubation_css_base: https://www.w3.org/assets/website-2021/styles
+```
+
+The menu links are root-relative (`/about/`, `/groups/`, ...), so they resolve against whichever host serves the site.
+
+### Incubation basic layout
+
+`incubation_basic` is the incubation counterpart of the `basic` layout: the same minimal header (logo only, no menu) and page structure, with the terracotta palette and the `cg-theme-terracotta` class. It uses the same `incubation_css_base` setting.
+
+```yaml
+layout: "incubation_basic"
+```
+
 ## Design system components
 
 A few components from the design system are [available](https://github.com/w3c/w3c-jekyll-theme/tree/main/_includes) with this theme.
