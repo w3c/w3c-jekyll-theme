@@ -1,0 +1,113 @@
+<header class="global-header">
+    <span role="status" aria-live="polite"></span>
+    {% include access_control_banner.html %}
+    <div class="banner" id="beta-banner">
+        <div class="banner__inner l-center">
+            <p>This is a <b>beta site</b> for the W3C Incubation Program; <a href="https://github.com/w3c/cg-program/tree/main/beta-2026">feedback welcome</a>. Visit the <a href="https://www.w3.org/">main W3C site</a>.</p>
+        </div>
+    </div>
+    <nav id="global-nav" aria-label="Main">
+        <div class="global-nav__inner l-center">
+            <a class="logo-link" href="https://www.w3.org/" hreflang="en">
+                <span class="logo">
+                    <img src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" alt="W3C" role="img"/>
+                </span>
+                <span class="visuallyhidden">Visit the W3C homepage</span>
+            </a>
+            <button type="button" class="button button--ghost with-icon--after with-icon--larger" data-trigger="mobile-nav"
+                    style="display: none;"></button>
+            <ul data-component="nav-double-intro">
+                <li class="top-nav-item has-children">
+                    <a href="/about/" class="nav-link">Incubation program</a>
+                    <div class="nav__submenu" data-nav="submenu" style="display: none;">
+                        <div class="l-center">
+                            <div class="nav__submenu__intro">
+                                <h2 class="nav__submenu__intro__heading">About the Incubation program</h2>
+                                <div class="nav__submenu__intro__text">
+                                    <p>W3C's Incubation program is designed to make it easy for people to bring new ideas for Web technology for discussion in W3C. Ideas that gain traction may advance from incubation to standardization.</p>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="/about/">About Incubation at W3C</a></li>
+                                <li><a href="/about/compare/">Incubation / standardization comparison</a></li>
+                                <li><a href="/about/faq/">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="top-nav-item has-children">
+                    <a href="/groups/" class="nav-link">Community Groups</a>
+                    <div class="nav__submenu" data-nav="submenu" style="display: none;">
+                        <div class="l-center">
+                            <div class="nav__submenu__intro">
+                                <h2 class="nav__submenu__intro__heading">Community Groups</h2>
+                                <div class="nav__submenu__intro__text">
+                                    <p>Incubation discussions happen in W3C Community Groups.</p>
+                                    <a href="/about/">Learn more about Community Groups.</a>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="/groups/">Current Community Groups</a></li>
+                                <li><a href="/groups/proposed/">Proposed Community Groups</a></li>
+                                <li><a href="/groups/?closed=1">Archived Community Groups</a></li>
+                                <li><a href="/about/good-practice/">Group lifecycle good practices</a></li>
+                                <li><a href="/about/process/">Community Group Process</a></li>
+                                <li><a href="/groups/propose/">Propose a new CG</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="top-nav-item has-children">
+                    <a href="/specs/" class="nav-link">Specifications</a>
+                    <div class="nav__submenu" data-nav="submenu" style="display: none;">
+                        <div class="l-center">
+                            <div class="nav__submenu__intro">
+                                <h2 class="nav__submenu__intro__heading">Specifications</h2>
+                                <div class="nav__submenu__intro__text">
+                                    <p>Community Group specifications represent community-driven incubation; these are not yet W3C standards.</p>
+                                    <a href="/specs/about/">Learn more about Community Group specifications.</a>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="/specs/">List of incubated specifications</a></li>
+                                <li><a href="/specs/about/">About CG specifications</a></li>
+                                <li><a href="/about/process/iprsummary/">Specification IPR Policies</a></li>
+                                <li><a href="/specs/management/">How groups manage specifications</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="top-nav-item has-children">
+                    <a href="/about/get-involved/" class="nav-link">Get involved</a>
+                    <div class="nav__submenu" data-nav="submenu" style="display: none;">
+                        <div class="l-center">
+                            <div class="nav__submenu__intro">
+                                <h2 class="nav__submenu__intro__heading">Get involved in Community Groups</h2>
+                                <div class="nav__submenu__intro__text">
+                                    <p>Anyone may participate in a Community Group without fee, and W3C Membership is not required. A <a href="https://www.w3.org/account/">W3C account</a> is required to join or propose a CG.</p>
+                                    <a href="/about/get-involved/">Learn more about getting involved in Community Groups.</a>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="/about/get-involved/#familiarize-yourself-with-community-group-policies">Participation and IPR policies</a></li>
+                                <li><a href="/about/get-involved/#join-a-community-group">Join a Community Group</a></li>
+                                <li><a href="/about/get-involved/">Other ways to get involved</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="top-nav-item">
+                    <a hreflang="en" href="https://www.w3.org/help/search/" class="nav-link icon-link">
+                        <img class="icon" src="https://www.w3.org/assets/website-2021/svg/search.svg" width="24" height="24" alt aria-hidden="true"><span class="hide-at-max-width">Search</span>
+                    </a>
+                </li>
+                <li class="top-nav-item">
+                    <a hreflang="en" href="https://www.w3.org/users/myprofile/" id="account-login-link" class="account-login icon-link with-icon--after">
+                        My account
+                        <span class="avatar avatar--small icon"><img src="https://www.w3.org/assets/website-2021/svg/avatar.svg" width="24" height="24" alt aria-hidden="true"/></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

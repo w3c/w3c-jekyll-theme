@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="no-js cg-theme-terracotta">
+
+{% include head_incubation.html %}
+
+<body class="default">
+    <a class="skip-link" href="#main">Skip to content</a>
+   {% include header_with_menu_incubation.html %}
+
+   {% include breadcrumb.html %}
+   
+   <main id="main">
+       <div class="content">
+           <article>
+               {%- if page.note -%}
+               {%- capture note_include %}notes_{{ page.note.type | default: "info" }}.html{% endcapture -%}
+               {% include {{ note_include }} id=page.note.id title=page.note.title content=page.note.content %}
+               {%- endif %}
+               {%- if page.title -%}
+               <h1>{{ page.title }}</h1>
+               {%- endif -%}
+               {% include translations.html %}
+               {% if page.toc == true %}
+               <nav class="toc" aria-labelledby="toc-label">
+                   <h2 id="toc-label">Page contents</h2>
+                   {{ content | toc_only }}
+               </nav>
+               {% endif %}
+               {{ content }}
+           </article>
+           {% if site.data.navigation.pages %}
+           <section>
+               <div class="related">
+                   <nav class="related__inner" aria-labelledby="related-label">
+                       <h2 id="related-label">{{ site.data.navigation.title | default: "In this section" }}</h2>
+                       <ul>
+                       {% for item in site.data.navigation.pages %}
+                         <li>
+                         <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                         </li>
+                       {% endfor %}
+                       </ul>
+                   </nav>
+               </div>
+               {% for item in page.submenu %}
+                   {% assign s = "submenu-" | append: item %}
+                   <div class="family-grouping">
+                       <nav class="related__inner" aria-labelledby="related-label">
+                           <h2>{{ site.data[s].title }}</h2>
+                           <ul>
+                              {% for item in site.data[s].pages %}
+                              <li>
+                                  <a href="{{ item.url }}"{% if page.url == item.html %} aria-current="true"{% endif %}>{{ item.title }}</a>
+                              </li>
+                              {% endfor %}
+                           </ul>
+                       </nav>
+                   </div>
+               {% endfor %}
+           </section>
+           {% endif %}
+       </div>
+       {% include prefooter.html %}
+   </main>  
+   {% include footer.html %}
+</body>
+
+</html>
+
